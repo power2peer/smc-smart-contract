@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
@@ -18,6 +19,14 @@ public class Library {
 		}
 		String clientVersion = web3ClientVersion.getWeb3ClientVersion();
 		System.out.println(clientVersion);
+
+		try {
+			System.out.println(web3.ethCoinbase().sendAsync().get().getAddress());
+		} catch (InterruptedException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		return true;
 	}
 }
