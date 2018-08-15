@@ -9,6 +9,6 @@ public class LibraryTest {
 	@Test
 	public void testSomeLibraryMethod() {
 		Library classUnderTest = new Library();
-		assertTrue("someLibraryMethod should return 'true'", classUnderTest.createAccount("auser"));
+		assertTrue("someLibraryMethod should return 'true'", classUnderTest.transfer("0x3980640925047be885b48ab4f63c53318059421d"));
 	}
 }
