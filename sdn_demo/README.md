@@ -12,7 +12,7 @@ tests should pass
     cd power2peer.app
     mvn clean install
 
-Follow instructions here to install the .oar file into ONOS
+Follow instructions here https://wiki.onosproject.org/display/ONOS/Template+Application+Tutorial to install the .oar file into ONOS
 
 In ONOS CLI:
 
