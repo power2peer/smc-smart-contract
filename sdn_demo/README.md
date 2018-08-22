@@ -26,4 +26,11 @@ In ONOS CLI:
     app activate com.power2peer.app
 
 
+## To start network for testing
+
+Use mininet against a python script like net.py :
+
+    sudo mn --custom ./p2p/net.py --topo leaf --mac --controller=remote,ip=172.17.0.2
+    
+
 
