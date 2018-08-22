@@ -1,3 +1,4 @@
+package com.power2peer;
 import java.math.BigDecimal;
 
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
