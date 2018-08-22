@@ -10,6 +10,8 @@
 apply plugin: 'java-library'
 apply plugin: 'maven'
 
+group = 'com.power2peer'
+version = '1.0'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -32,4 +34,3 @@ dependencies {
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
-
