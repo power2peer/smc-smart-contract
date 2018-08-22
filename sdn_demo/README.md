@@ -1,10 +1,12 @@
 ## To build java client
 
+First build this since the ONOS Java provider library depends on it.
+
     cd javaclient
     start ethereun network (See its local readme file for instructions)
-    ./gradlew build 
+    ./gradlew build install
 
-tests should pass
+tests should pass and your jar should be installed to your local maven repository
 
 
 ## To build ONOS Java provider library
