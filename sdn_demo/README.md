@@ -1,10 +1,12 @@
 ## To build java client
 
+First build this since the ONOS Java provider library depends on it.
+
     cd javaclient
     start ethereun network (See its local readme file for instructions)
-    ./gradlew build 
+    ./gradlew build install
 
-tests should pass
+tests should pass and your jar should be installed to your local maven repository
 
 
 ## To build ONOS Java provider library
@@ -23,5 +25,12 @@ In ONOS CLI:
 
     app activate com.power2peer.app
 
+
+## To start network for testing
+
+Use mininet against a python script like net.py :
+
+    sudo mn --custom ./p2p/net.py --topo leaf --mac --controller=remote,ip=172.17.0.2
+    
 
 
