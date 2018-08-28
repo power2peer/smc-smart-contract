@@ -18,7 +18,6 @@ package com.power2peer;
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
-import org.apache.felix.scr.annotations.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,16 +27,21 @@ import org.slf4j.LoggerFactory;
 @Component(immediate = true)
 public class AppComponent {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+	private final Logger log = LoggerFactory.getLogger(getClass());
 
-    @Activate
-    protected void activate() {
-        log.info("Started");
-    }
+	@Activate
+	protected void activate() {
+		log.info("Started");
+		String url = "https://Power2Peer.com/t/";
+		String keystorefile = "/tmp/UTC--2018-08-14T03-03-16.633994578Z--b19aeb8b89c25d5cd038dfcf071297113a520546";
+		BlockchainConfig config = BlockchainConfig.newConfig(url, keystorefile, "12341234");
+		EtherTransfer transfer = new EtherTransfer(config);
+		transfer.transfer("0x3980640925047be885b48ab4f63c53318059421d");
+	}
 
-    @Deactivate
-    protected void deactivate() {
-        log.info("Stopped");
-    }
+	@Deactivate
+	protected void deactivate() {
+		log.info("Stopped");
+	}
 
 }
