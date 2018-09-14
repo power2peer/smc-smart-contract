@@ -1,4 +1,4 @@
-package com.power2peer.transactionapi;
+package com.power2peer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

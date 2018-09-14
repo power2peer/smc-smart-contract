@@ -1,4 +1,4 @@
-package com.power2peer.transactionapi;
+package com.power2peer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
