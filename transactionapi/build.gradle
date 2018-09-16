@@ -10,6 +10,10 @@ buildscript {
 	}
 }
 
+plugins {
+	id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -18,6 +22,11 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.power2peer'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+
+lombok {
+	version = '1.18.2'
+	sha256 = ""
+}
 
 repositories {
 	mavenCentral()
