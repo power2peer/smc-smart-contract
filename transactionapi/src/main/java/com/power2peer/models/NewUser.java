@@ -16,4 +16,15 @@ public class NewUser {
 	@JsonProperty("name")
 	private String name;
 
+	@Getter
+	@Setter
+	@JsonProperty("email")
+	private String emailAddress;
+	
+
+	@Getter
+	@Setter
+	@JsonProperty("mac")
+	private String macAddress;
+
 }

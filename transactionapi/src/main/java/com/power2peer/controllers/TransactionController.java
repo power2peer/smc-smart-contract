@@ -36,6 +36,12 @@ public class TransactionController {
 		return transactions.get(name);
 	}
 
+	@PostMapping("/registerusers")
+	public List<RegisteredUser> registerUsers(@RequestBody List<NewUser> request) {
+		List<RegisteredUser> user = UserRegistry.registerUsers(request);
+		return user;
+	}
+
 	@PostMapping("/registeruser")
 	public RegisteredUser registerUser(@RequestBody NewUser request) {
 		RegisteredUser user = UserRegistry.register(request);

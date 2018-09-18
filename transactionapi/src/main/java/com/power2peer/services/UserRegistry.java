@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import com.power2peer.models.NewUser;
 import com.power2peer.models.RegisteredUser;
@@ -16,7 +18,7 @@ public class UserRegistry {
 		if (users.containsKey(request.getName())) {
 			throw new RuntimeException("User already exists!");
 		}
-		users.put(request.getName(), new RegisteredUser(request.getName()));
+		users.put(request.getName(), new RegisteredUser(request));
 		return users.get(request.getName());
 	}
 
@@ -26,6 +28,12 @@ public class UserRegistry {
 
 	public static List<RegisteredUser> allUsers() {
 		return new ArrayList<>(users.values());
+	}
+
+	public static List<RegisteredUser> registerUsers(List<NewUser> request) {
+		return request.stream().map(item -> {
+			return register(item);
+		}).collect(Collectors.toList());
 	}
 
 }
