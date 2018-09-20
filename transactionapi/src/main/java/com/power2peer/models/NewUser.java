@@ -26,5 +26,16 @@ public class NewUser {
 	@Setter
 	@JsonProperty("mac")
 	private String macAddress;
+	
+	@Getter
+	@Setter
+	@JsonProperty("ip")
+	private String ip;
+	
+	@Getter
+	@Setter
+	@JsonProperty("location")
+	private String location;
+	
 
 }

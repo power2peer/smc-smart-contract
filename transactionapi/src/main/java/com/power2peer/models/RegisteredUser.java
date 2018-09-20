@@ -24,10 +24,23 @@ public class RegisteredUser {
 	@JsonProperty("mac")
 	private String macAddress;
 
+	@Getter
+	@Setter
+	@JsonProperty("ip")
+	private String ip;
+	
+	@Getter
+	@Setter
+	@JsonProperty("location")
+	private String location;
+	
+
 	public RegisteredUser(NewUser request) {
 		this.emailAddress = request.getEmailAddress();
 		this.name = request.getName();
 		this.macAddress = request.getMacAddress();
+		this.ip = request.getIp();
+		this.location = request.getLocation();
 	}
 
 }
