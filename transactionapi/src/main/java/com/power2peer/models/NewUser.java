@@ -3,10 +3,12 @@ package com.power2peer.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewUser {
@@ -20,22 +22,23 @@ public class NewUser {
 	@Setter
 	@JsonProperty("email")
 	private String emailAddress;
-	
 
+	@Builder.Default
 	@Getter
 	@Setter
 	@JsonProperty("mac")
-	private String macAddress;
-	
+	private String macAddress = "";
+
+	@Builder.Default
 	@Getter
 	@Setter
 	@JsonProperty("ip")
-	private String ip;
-	
+	private String ip = "";
+
+	@Builder.Default
 	@Getter
 	@Setter
 	@JsonProperty("location")
-	private String location;
-	
+	private String location = "";
 
 }

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,10 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.power2peer.models.EnergyTransaction;
 import com.power2peer.models.NewUser;
 import com.power2peer.models.RegisteredUser;
+import com.power2peer.models.RegisteredUserRepository;
 import com.power2peer.services.UserRegistry;
 
 @RestController
 public class TransactionController {
+
+	private UserRegistry userRegistry;
+
+	@Autowired
+	public TransactionController(UserRegistry userRegistry) {
+		this.userRegistry = userRegistry;
+	}
 
 	private Map<String, EnergyTransaction> transactions = new HashMap<>();
 
@@ -38,25 +47,24 @@ public class TransactionController {
 
 	@PostMapping("/registerusers")
 	public List<RegisteredUser> registerUsers(@RequestBody List<NewUser> request) {
-		List<RegisteredUser> user = UserRegistry.registerUsers(request);
+		List<RegisteredUser> user = userRegistry.registerUsers(request);
 		return user;
 	}
 
 	@PostMapping("/registeruser")
 	public RegisteredUser registerUser(@RequestBody NewUser request) {
-		RegisteredUser user = UserRegistry.register(request);
+		RegisteredUser user = userRegistry.register(request);
 		return user;
 	}
 
-	@RequestMapping("/user/{username}")
-	public RegisteredUser fetchUser(@PathVariable String username) {
-		RegisteredUser user = UserRegistry.getUser(username);
-		return user;
+	@RequestMapping("/user/{name}")
+	public RegisteredUser fetchUser(@PathVariable String name) {
+		return userRegistry.getUser(name);
 	}
 
 	@RequestMapping("/users")
 	public List<RegisteredUser> fetchUsers() {
-		return UserRegistry.allUsers();
+		return userRegistry.findAll();
 	}
 
 }

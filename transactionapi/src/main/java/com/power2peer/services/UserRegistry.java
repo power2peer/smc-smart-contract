@@ -1,39 +1,43 @@
 package com.power2peer.services;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
 
 import com.power2peer.models.NewUser;
 import com.power2peer.models.RegisteredUser;
+import com.power2peer.models.RegisteredUserRepository;
 
+@Service
 public class UserRegistry {
 
-	private static Map<String, RegisteredUser> users = new HashMap<>();
+	private final RegisteredUserRepository registeredUserRepository;
 
-	public static RegisteredUser register(NewUser request) {
-		if (users.containsKey(request.getName())) {
-			throw new RuntimeException("User already exists!");
-		}
-		users.put(request.getName(), new RegisteredUser(request));
-		return users.get(request.getName());
+	public UserRegistry(RegisteredUserRepository registeredUserRepository) {
+		this.registeredUserRepository = registeredUserRepository;
 	}
 
-	public static RegisteredUser getUser(String username) {
-		return users.get(username);
+	public RegisteredUser register(NewUser request) {
+		return registeredUserRepository.save(new RegisteredUser(request));
 	}
 
-	public static List<RegisteredUser> allUsers() {
-		return new ArrayList<>(users.values());
+	public RegisteredUser getUser(String username) {
+		return registeredUserRepository.findByName(username);
 	}
 
-	public static List<RegisteredUser> registerUsers(List<NewUser> request) {
-		return request.stream().map(item -> {
-			return register(item);
-		}).collect(Collectors.toList());
+	public List<RegisteredUser> allUsers() {
+		return registeredUserRepository.findAll();
+	}
+
+	public List<RegisteredUser> registerUsers(List<NewUser> request) {
+		return registeredUserRepository.saveAll(request.stream().map(item -> {
+			return new RegisteredUser(item);
+		}).collect(Collectors.toList()));
+	}
+
+	public List<RegisteredUser> findAll() {
+		return registeredUserRepository.findAll();
 	}
 
 }
