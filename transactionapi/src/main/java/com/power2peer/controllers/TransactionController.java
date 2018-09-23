@@ -31,8 +31,10 @@ public class TransactionController {
 	private Map<String, EnergyTransaction> transactions = new HashMap<>();
 
 	public TransactionController() {
-		this.transactions.put("id1", new EnergyTransaction("producer1"));
-		this.transactions.put("id2", new EnergyTransaction("producer2"));
+		this.transactions.put("id1",
+				new EnergyTransaction(new RegisteredUser("1", "abc", "email1", "mac1", "ip1", "loc1", "ethAddress1")));
+		this.transactions.put("id2",
+				new EnergyTransaction(new RegisteredUser("w", "def", "email2", "mac1", "ip1", "loc1", "ethAddress2")));
 	}
 
 	@RequestMapping("/transactions")

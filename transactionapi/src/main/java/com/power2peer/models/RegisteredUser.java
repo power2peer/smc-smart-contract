@@ -3,6 +3,7 @@ package com.power2peer.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,12 +41,21 @@ public class RegisteredUser {
 	@JsonProperty("location")
 	private String location;
 
+	/**
+	 * Ethereum Address.
+	 */
+	@Getter
+	@Setter
+	@JsonProperty("ethAddress")
+	private String ethAddress = "";
+
 	public RegisteredUser(NewUser request) {
 		this.emailAddress = request.getEmailAddress();
 		this.name = request.getName();
 		this.macAddress = request.getMacAddress();
 		this.ip = request.getIp();
 		this.location = request.getLocation();
+		this.ethAddress = request.getEthAddress();
 	}
 
 }

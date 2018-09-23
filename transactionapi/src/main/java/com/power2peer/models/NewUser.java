@@ -41,4 +41,12 @@ public class NewUser {
 	@JsonProperty("location")
 	private String location = "";
 
+	/**
+	 * Ethereum Address.
+	 */
+	@Getter
+	@Setter
+	@JsonProperty("ethAddress")
+	private String ethAddress;
+
 }
