@@ -137,7 +137,7 @@ var demo = new Vue({
   }
 });
 
-fetch("/api/registeredusers?sort=name").then(json => json.json()).then(data => {
+fetch("./api/registeredusers?sort=name").then(json => json.json()).then(data => {
 	demo.gridData = data._embedded.registeredusers;
 });
 
