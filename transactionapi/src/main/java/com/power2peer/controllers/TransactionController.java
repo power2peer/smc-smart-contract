@@ -64,9 +64,4 @@ public class TransactionController {
 		return userRegistry.getUser(name);
 	}
 
-	@RequestMapping("/users")
-	public List<RegisteredUser> fetchUsers() {
-		return userRegistry.findAll();
-	}
-
 }
