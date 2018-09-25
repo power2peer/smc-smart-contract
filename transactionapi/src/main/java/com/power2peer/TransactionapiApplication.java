@@ -21,18 +21,6 @@ public class TransactionapiApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		registeredUserRepository.deleteAll();
-
-		NewUser newUser = NewUser.builder().name("Binod").emailAddress("binod@new.com").build();
-		NewUser newUser2 = NewUser.builder().name("Nish").emailAddress("nish@new.com").build();
-		NewUser newUser3 = NewUser.builder().name("Eric").emailAddress("eric@new.com").build();
-
-		registeredUserRepository.save(new RegisteredUser(newUser));
-		registeredUserRepository.save(new RegisteredUser(newUser2));
-		registeredUserRepository.save(new RegisteredUser(newUser3));
-
-
-		System.out.println(registeredUserRepository.findByName("Binod"));
+		registeredUserRepository.findAll().stream().forEach(System.out::println);
 	}
 }
