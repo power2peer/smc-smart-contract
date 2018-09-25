@@ -26,7 +26,7 @@
 
 	<!-- component template -->
 	<script type="text/x-template" id="grid-template">
-  <table class="table table-striped">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th v-for="key in columns"
@@ -55,7 +55,7 @@ var demo = new Vue({
   el: '#demo',
   data: {
     searchQuery: '',
-    gridColumns: ['name', 'ethAddress'],
+    gridColumns: ['name', 'ethAddress', 'tokensAvailable'],
     gridData: []
   }
 });

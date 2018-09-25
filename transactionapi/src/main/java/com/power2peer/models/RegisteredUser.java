@@ -51,6 +51,12 @@ public class RegisteredUser {
 	@Setter
 	@JsonProperty("ethAddress")
 	private String ethAddress = "";
+	
+	
+	@Getter
+	@Setter
+	@JsonProperty("tokensAvailable")
+	private int tokensAvailable = 0;
 
 	public RegisteredUser(NewUser request) {
 		this.emailAddress = request.getEmailAddress();

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.power2peer.models.EnergyTransaction;
 import com.power2peer.models.NewUser;
 import com.power2peer.models.RegisteredUser;
-import com.power2peer.models.RegisteredUserRepository;
 import com.power2peer.services.UserRegistry;
 
 @RestController
@@ -29,13 +28,6 @@ public class TransactionController {
 	}
 
 	private Map<String, EnergyTransaction> transactions = new HashMap<>();
-
-	public TransactionController() {
-		this.transactions.put("id1",
-				new EnergyTransaction(new RegisteredUser("1", "abc", "email1", "mac1", "ip1", "loc1", "ethAddress1")));
-		this.transactions.put("id2",
-				new EnergyTransaction(new RegisteredUser("w", "def", "email2", "mac1", "ip1", "loc1", "ethAddress2")));
-	}
 
 	@RequestMapping("/transactions")
 	public Collection<EnergyTransaction> fetchAllTransactions() {
