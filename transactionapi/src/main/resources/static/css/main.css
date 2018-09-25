@@ -1,11 +1,15 @@
+
 body {
 	font-family: Helvetica Neue, Arial, sans-serif;
 	font-size: 14px;
 	background: #43cea2;
 	background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
 	background: linear-gradient(to right, #185a9d, #43cea2);
-	color: #fff;
 	text-align: center;
+}
+
+nav.title {
+		color: #fff;
 }
 
 table {
