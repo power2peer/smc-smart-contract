@@ -39,5 +39,8 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-data-rest")
 	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
+    
+    compile 'org.web3j:core:3.4.0'
+    
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

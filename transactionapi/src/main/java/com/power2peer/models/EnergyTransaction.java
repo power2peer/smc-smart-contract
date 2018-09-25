@@ -1,5 +1,7 @@
 package com.power2peer.models;
 
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+
 import com.power2peer.blockchain.BlockChainHandler;
 import com.power2peer.blockchain.TransactionResult;
 
@@ -30,7 +32,13 @@ public class EnergyTransaction {
 	 * @param units
 	 *            Units of energy to sell
 	 */
-	public TransactionResult sellTo(RegisteredUser consumer, int units) {
+	public TransactionReceipt sellTo(RegisteredUser consumer, int units) {
+		if (producer.getEthAddress().trim().isEmpty()) {
+			throw new RuntimeException("No ethereum address for producer " + producer.getEmailAddress());
+		}
+		if (consumer.getEthAddress().trim().isEmpty()) {
+			throw new RuntimeException("No ethereum address for consumer " + consumer.getEmailAddress());
+		}
 		return blockChainHandler.transfer(producer.getEthAddress(), consumer.getEthAddress(), units);
 	}
 

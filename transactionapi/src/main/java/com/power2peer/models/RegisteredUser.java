@@ -17,6 +17,8 @@ import org.springframework.data.annotation.Id;
 public class RegisteredUser {
 
 	@Id
+	@Getter
+	@JsonProperty("id")
 	public String id;
 
 	@Getter

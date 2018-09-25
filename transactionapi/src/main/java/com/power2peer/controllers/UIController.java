@@ -16,4 +16,9 @@ public class UIController {
 	public String users() {
 		return "users";
 	}
+	
+	@GetMapping(value = "/transactions")
+	public String tx() {
+		return "transactions";
+	}
 }
