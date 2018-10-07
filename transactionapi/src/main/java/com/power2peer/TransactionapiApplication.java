@@ -21,6 +21,6 @@ public class TransactionapiApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		registeredUserRepository.findAll().stream().forEach(System.out::println);
+		//registeredUserRepository.findAll().stream().forEach(System.out::println);
 	}
 }

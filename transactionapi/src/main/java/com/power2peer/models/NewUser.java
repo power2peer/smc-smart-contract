@@ -49,4 +49,12 @@ public class NewUser {
 	@JsonProperty("ethAddress")
 	private String ethAddress;
 
+	/**
+	 * Usertype.
+	 */
+	@Getter
+	@Setter
+	@JsonProperty("type")
+	private UserType type;
+
 }

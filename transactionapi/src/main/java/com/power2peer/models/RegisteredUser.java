@@ -59,6 +59,10 @@ public class RegisteredUser {
 	@Setter
 	@JsonProperty("tokensAvailable")
 	private int tokensAvailable = 0;
+	
+	@Getter
+	@Setter
+	private UserType type;
 
 	public RegisteredUser(NewUser request) {
 		this.emailAddress = request.getEmailAddress();
@@ -67,6 +71,7 @@ public class RegisteredUser {
 		this.ip = request.getIp();
 		this.location = request.getLocation();
 		this.ethAddress = request.getEthAddress();
+		this.type = request.getType();
 	}
 
 }
