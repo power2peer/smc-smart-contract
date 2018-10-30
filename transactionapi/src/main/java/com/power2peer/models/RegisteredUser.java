@@ -63,6 +63,14 @@ public class RegisteredUser {
 	@Getter
 	@Setter
 	private UserType type;
+	
+	/**
+	 * PricePerKWh.
+	 */
+	@Getter
+	@Setter
+	@JsonProperty("pricePerKwh")
+	private float pricePerKwh;
 
 	public RegisteredUser(NewUser request) {
 		this.emailAddress = request.getEmailAddress();
@@ -72,6 +80,7 @@ public class RegisteredUser {
 		this.location = request.getLocation();
 		this.ethAddress = request.getEthAddress();
 		this.type = request.getType();
+		this.pricePerKwh = request.getPricePerKwh();
 	}
 
 }

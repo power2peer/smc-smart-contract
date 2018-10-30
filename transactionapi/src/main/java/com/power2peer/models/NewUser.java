@@ -56,5 +56,13 @@ public class NewUser {
 	@Setter
 	@JsonProperty("type")
 	private UserType type;
+	
+	/**
+	 * PricePerKWh.
+	 */
+	@Getter
+	@Setter
+	@JsonProperty("pricePerKwh")
+	private float pricePerKwh;
 
 }
