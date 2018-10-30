@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource(collectionResourceRel = "registeredusers", path = "registeredusers")
 public interface RegisteredUserRepository extends MongoRepository<RegisteredUser, String> {
 
-	public Page<RegisteredUser> findAll(Pageable pageable);
+	public List<RegisteredUser> findAllByTypeOrderByPricePerKwhAsc(@Param("type") UserType type);
 	
 	public RegisteredUser findByName(@Param("name") String name);
 
