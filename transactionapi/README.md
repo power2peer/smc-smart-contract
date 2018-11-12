@@ -11,3 +11,9 @@ Use Daeomon mode:
 == Start app service ==
 
     sudo systemctl restart transactionapi.service
+
+    
+== Creating geospatial index in db ==
+
+    db.registeredUser.createIndex({location:"2dsphere"})
+
