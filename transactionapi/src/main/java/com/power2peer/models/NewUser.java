@@ -1,5 +1,7 @@
 package com.power2peer.models;
 
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -36,10 +38,10 @@ public class NewUser {
 	private String ip = "";
 
 	@Builder.Default
-	@Getter
 	@Setter
+	@Getter
 	@JsonProperty("location")
-	private String location = "";
+	private GeoJsonPoint location = new GeoJsonPoint(0, 0);
 
 	/**
 	 * Ethereum Address.
@@ -56,7 +58,7 @@ public class NewUser {
 	@Setter
 	@JsonProperty("type")
 	private UserType type;
-	
+
 	/**
 	 * PricePerKWh.
 	 */

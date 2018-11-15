@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,7 +45,7 @@ public class RegisteredUser {
 	@Getter
 	@Setter
 	@JsonProperty("location")
-	private String location;
+	private GeoJsonPoint location;
 
 	/**
 	 * Ethereum Address.
